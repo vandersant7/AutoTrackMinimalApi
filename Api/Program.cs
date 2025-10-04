@@ -161,6 +161,7 @@ app.MapGet("/administrator/{id}", ([FromRoute] int id, IAdministratorServices ad
     return Results.Ok(result);
 })
 .RequireAuthorization()
+.RequireAuthorization(new AuthorizeAttribute { Roles = "Admin" })
 .WithTags("Administrator");
 
 app.MapPost("/administrator", ([FromBody] AdministratorCreateDTO administratorDto, IAdministratorServices administratorServices) =>
