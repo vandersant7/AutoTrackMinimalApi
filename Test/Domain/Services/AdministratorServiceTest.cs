@@ -1,11 +1,8 @@
-using System;
-using System.Linq;
 using AutoTrackMinimalApi.Domain.Entity;
 using AutoTrackMinimalApi.Domain.Services;
 using AutoTrackMinimalApi.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using AutoTrackMinimalApi.Domain.DTOs.Enuns;
 
 namespace Test.Domain.Services
 {
@@ -32,7 +29,7 @@ namespace Test.Domain.Services
                 Id = 1,
                 Email = "admin@getadmin.com",
                 Password = "password",
-                Profile = "Admin"
+                Profile = Profile.Admin
             };
             service.Register(admin);
 
@@ -55,21 +52,21 @@ namespace Test.Domain.Services
                 Id = 1,
                 Email = "admin1@test.com",
                 Password = "pwd1",
-                Profile = "Admin"
+                Profile = Profile.Admin
             });
             service.Register(new Administrator
             {
                 Id = 2,
                 Email = "admin2@test.com",
                 Password = "pwd2",
-                Profile = "Admin"
+                Profile = Profile.Admin
             });
 
             // Act
-            var admins = service.GetAllAdmins(0); // Assuming parameter '0' returns all admins.
+            var admins = service.GetAllAdmins(0);
 
             // Assert
-            Assert.AreEqual(2, admins.Count);
+            Assert.HasCount(2, admins);
         }
 
         [TestMethod]
@@ -81,7 +78,7 @@ namespace Test.Domain.Services
                 Id = 1,
                 Email = "admin2@teste.com",
                 Password = "12345678",
-                Profile = "Admin"
+                Profile = Profile.Admin
             };
             var context = CreateDbContext();
             var service = new AdministratorServices(context);
@@ -90,7 +87,7 @@ namespace Test.Domain.Services
             service.Register(admin);
 
             // Assert
-            Assert.AreEqual(1, service.GetAllAdmins(0).Count);
+            Assert.HasCount(1, service.GetAllAdmins(0));
         }
         
     }
