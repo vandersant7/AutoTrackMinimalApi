@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoTrackMinimalApi.Domain.Entity;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Test.Domain.Entities
 {
