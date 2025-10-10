@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoTrackMinimalApi.Domain.DTOs.Enuns;
 
 namespace AutoTrackMinimalApi.Domain.Entity
 {
@@ -20,6 +21,6 @@ namespace AutoTrackMinimalApi.Domain.Entity
         public string? Password { get; set; } = default;
 
         [Required]
-        public string? Profile { get; set; }
+        public Profile Profile { get; set; }
     }
 }

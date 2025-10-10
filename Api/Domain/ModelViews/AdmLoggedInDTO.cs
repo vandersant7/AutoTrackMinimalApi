@@ -1,14 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using AutoTrackMinimalApi.Domain.DTOs.Enuns;
 
 namespace AutoTrackMinimalApi.Domain.ModelViews
 {
     public record AdmLoggedInDto
     {
-        public string? Email { get; set; } = default;
-        public string? Profile { get; set; } = default;
-        public string? Token { get; set; } = default;
+        public string? Email { get; set; }
+        public Profile Profile { get; set; }
+        public string? Token { get; set; }
     }
 }

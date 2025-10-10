@@ -1,4 +1,5 @@
 using AutoTrackMinimalApi.Domain.Entity;
+using AutoTrackMinimalApi.Domain.DTOs.Enuns;
 using FluentValidation;
 
 namespace AutoTrackMinimalApi.Domain.Validators
@@ -8,21 +9,19 @@ namespace AutoTrackMinimalApi.Domain.Validators
         public AdministratorValidator()
         {
             RuleFor(admin => admin.Email)
-            .NotEmpty().WithMessage("Email não pode ser vazio")
-            .NotNull().WithMessage("Email nao pode ser nulo")
-            .EmailAddress().WithMessage("Email inválido")
-            .Length(255).WithMessage("Tamanho de caracteres excedido");
+                .NotEmpty().WithMessage("Email não pode ser vazio")
+                .NotNull().WithMessage("Email nao pode ser nulo")
+                .EmailAddress().WithMessage("Email inválido")
+                .MaximumLength(255).WithMessage("Tamanho de caracteres excedido");
 
             RuleFor(admin => admin.Password)
-            .NotEmpty().WithMessage("Senha nao pode ser vazia")
-            .NotNull().WithMessage("Senha nao pode ser nula")
-            .MinimumLength(8).WithMessage("Senha deve ter no mínimo 8 caracteres")
-            .MaximumLength(50).WithMessage("Senha deter ter no máximo 50 caracteres");
+                .NotEmpty().WithMessage("Senha nao pode ser vazia")
+                .NotNull().WithMessage("Senha nao pode ser nula")
+                .MinimumLength(8).WithMessage("Senha deve ter no mínimo 8 caracteres")
+                .MaximumLength(50).WithMessage("Senha deve ter no máximo 50 caracteres");
 
             RuleFor(admin => admin.Profile)
-            .NotEmpty().WithMessage("Perfil nao pode ser vazio")
-            .NotNull().WithMessage("Perfil nao pode ser nulo")
-            .MaximumLength(10).WithMessage("Tamanho de caracteres excedido");
+                .IsInEnum().WithMessage("Perfil inválido");
         }
     }
 }
