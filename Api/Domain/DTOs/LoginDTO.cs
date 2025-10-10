@@ -7,7 +7,7 @@ namespace AutoTrackMinimalApi.Domain.DTOs
 {
     public class LoginDto
     {
-        public string? Email { get; set; } = default;
-        public string? Senha { get; set; } = default;
+        public string? Email { get; set; } = string.Empty;
+        public string? Senha { get; set; } = string.Empty;
     }
 }
