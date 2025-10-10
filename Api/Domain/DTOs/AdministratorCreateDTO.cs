@@ -8,10 +8,10 @@ namespace AutoTrackMinimalApi.Domain.DTOs
 {
     public record AdministratorCreateDTO
     {
-        public string Email { get; set; } = default;
+        public string Email { get; set; } = string.Empty;
 
-        public string Password { get; set; } = default;
+        public string Password { get; set; } = string.Empty;
         
-        public Profile? Profile { get; set; } = default;
+        public Profile? Profile { get; set; }
     }
 }
