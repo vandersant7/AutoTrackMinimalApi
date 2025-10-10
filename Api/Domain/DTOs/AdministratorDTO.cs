@@ -9,7 +9,7 @@ namespace AutoTrackMinimalApi.Domain.DTOs
     public record AdministratorDTO
     {
         public int Id { get; set; }
-        public string? Email { get; set; } = default;
-        public string Profile { get; set; } = default;
+        public string? Email { get; set; } = string.Empty;
+        public Profile Profile { get; set; }
     }
 }
